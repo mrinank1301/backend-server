@@ -1,13 +1,15 @@
 const express = require('express');
 const fs = require('fs');
+const cors = require('cors');
 const app = express();
 const port = 3000;
 
+app.use(cors());
 app.get('/', (req, res) => {
   const Practical1 = fs.readFileSync('Practical-1.txt', 'utf8');
   res.json({
     Practical1: Practical1,
-    Note:'\r\n indicates nxt line so remove that adn go to the nxt line'
+    Note: '\r\n indicates nxt line so remove that adn go to the nxt line'
   });
 });
 
